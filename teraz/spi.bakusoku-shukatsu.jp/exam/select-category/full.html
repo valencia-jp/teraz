@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- Mirrored from spi.bakusoku-shukatsu.jp/exam/select-category/full by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Aug 2025 13:03:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- キャッシュ無効化 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="csrf-token" content="MSJgq0sV0vpxvjW147k43tyVSOduzwYQzuV3Cm0t">
+    <title>本格受験 - カテゴリ選択 - バクソクSPI</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../../www.googletagmanager.com/gtm5445.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WM24JJQN');</script>
+    <!-- End Google Tag Manager -->
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
+    
+    <!-- 共通CSS（homeページ完全統一版） -->
+    <style>
+    /* ================================================
+       共通レイアウトCSS（homeページ完全統一版）
+       ================================================ */
+    
+    /* 基本リセット・設定 */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-size: 100%;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        line-height: 1.65;
+        color: #333;
+        background-color: #f4f6f8;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* スクリーンリーダー向けユーティリティクラス */
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    /* 全体コンテナ */
+    .container {
+        width: 100%;
+        max-width: 800px;
+        min-height: 100vh;
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 0;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    
+    /* 受験画面では最小高を調整 */
+    body.exam-page .container {
+        min-height: auto;
+    }
+
+    /* ヘッダー（homeページ完全統一） */
+    .header {
+        height: 65px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        width: 35px;
+        height: 35px;
+        background-image: url('../../images/v1_5.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin-right: 10px;
+    }
+
+    .site-title {
+        color: #2f98a5;
+        font-weight: bold;
+        font-size: 1.25rem;
+        text-decoration: none;
+    }
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease;
+    }
+
+    .logo-link:hover {
+        opacity: 0.8;
+    }
+
+    .logo-link:hover .site-title {
+        color: #247a85;
+    }
+
+    /* ログアウトボタン */
+    .logout-btn:hover {
+        background-color: #2f98a5 !important;
+        color: #fff !important;
+    }
+
+    /* メインコンテンツ */
+    .main-content {
+        padding: 0 20px 2rem;
+    }
+
+    /* フッター（homeページのv1_4スタイル完全統一） */
+    .footer {
+        background-color: #f8f9fa;
+        padding: 1.5rem 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.5rem;
+    }
+
+    .footer-nav a {
+        color: #555;
+        font-size: 0.8125rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+        color: #2f98a5;
+        text-decoration: underline;
+    }
+
+    /* レスポンシブ対応（homeページ統一） */
+    @media (max-width: 600px) {
+        .main-content {
+            padding: 0 15px 2rem;
+        }
+        
+        .header {
+            padding: 0 16px;
+        }
+        
+        .footer {
+            padding: 1.5rem 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        html {
+            font-size: 93.75%;
+        }
+        
+        .header {
+            height: 60px;
+            padding: 0 15px;
+        }
+        
+        .logo { 
+            width: 30px; 
+            height: 30px; 
+        }
+        
+        .site-title { 
+            font-size: 1.125rem;
+        }
+
+        .main-content {
+            padding: 0 15px 1.5rem;
+        }
+
+        .footer {
+            padding: 1.5rem 15px;
+        }
+
+        .footer-nav { 
+            gap: 0.5rem 1rem;
+        }
+        
+        .footer-nav a { 
+            font-size: 0.75rem;
+        }
+        
+        /* ヘッダーのレスポンシブ対応 */
+        .logout-btn {
+            font-size: 0.75rem !important;
+            padding: 4px 8px !important;
+        }
+    }
+    </style>
+    
+    <!-- TailwindCSS（受験画面以外で読み込み） -->
+            <link rel="preload" as="style" href="../../build/assets/app-CiUQVDEA.css" /><link rel="stylesheet" href="../../build/assets/app-CiUQVDEA.css" />        
+    <!-- ページ固有CSS -->
+    <style>
+/* ================================================
+   バクソクSPI カテゴリ選択ページ専用CSS
+   ================================================ */
+
+/* --- ページタイトル --- */
+.page-title {
+  color: #2f98a5;
+  font-weight: bold;
+  font-size: 1.125rem; /* 18px相当 */
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+/* --- 戻るボタン --- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  color: #2f98a5;
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: #1a5a63;
+}
+
+.back-button::before {
+  content: "←";
+  margin-right: 0.5rem;
+}
+
+/* --- カテゴリカード --- */
+.category-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background-color: #e0fcff;
+  border: 1px solid #949494;
+  border-radius: 5px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 120px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-card:hover {
+  background-color: #d0f8ff;
+  border-color: #2f98a5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(47, 152, 165, 0.1);
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-icon {
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+}
+
+.icon-language {
+  background-image: url("../../images/v43_30.png");
+}
+
+.icon-math {
+  background-image: url("../../images/v43_31.png");
+}
+
+.icon-english {
+  background-image: url("../../images/v43_32.png");
+}
+
+.category-content {
+  flex: 1;
+  text-align: center;
+}
+
+.category-name {
+  color: #2f98a5;
+  font-weight: bold;
+  font-size: 1.25rem; /* 20px相当 */
+  margin-bottom: 0.5rem;
+}
+
+.category-note {
+  color: #333;
+  font-size: 0.75rem; /* 12px相当 */
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- 受験タイプ表示 --- */
+.exam-type-info {
+  background-color: #f8f9fa;
+  border-left: 4px solid #2f98a5;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.exam-type-title {
+  color: #2f98a5;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.exam-type-details {
+  color: #666;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* --- レスポンシブ対応 --- */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .page-subtitle {
+    font-size: 0.8125rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .category-selection {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .category-card {
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 100px;
+  }
+
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .category-name {
+    font-size: 1.125rem; /* 18px相当 */
+  }
+
+  .category-note {
+    font-size: 0.6875rem; /* 11px相当 */
+  }
+  
+  .exam-type-info {
+    padding: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .exam-type-title {
+    font-size: 0.9375rem;
+  }
+  
+  .exam-type-details {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .category-card {
+    padding: 0.875rem;
+    gap: 0.75rem;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .category-name {
+    font-size: 1rem; /* 16px相当 */
+  }
+}
+</style>
+    
+    <!-- JS -->
+    <link rel="modulepreload" href="../../build/assets/app-eMHK6VFw.js" /><script type="module" src="../../build/assets/app-eMHK6VFw.js"></script></head>
+<body class="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WM24JJQN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="../../index.html" class="logo-link">
+                    <div class="logo"></div>
+                    <span class="site-title">バクソクＳＰＩ</span>
+                </a>
+            </div>
+            
+            <!-- ログアウトボタン（ログイン中のみ表示） -->
+                    </header>
+        
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <main class="main-content">
+    <a href="../select-mode.html" class="back-button">受験タイプ選択に戻る</a>
+    
+    <h1 class="page-title">
+                    本格受験
+            </h1>
+    <p class="page-subtitle">受験するカテゴリを選択してください</p>
+    
+    <!-- 受験タイプ情報 -->
+    <div class="exam-type-info">
+        <div class="exam-type-title">
+                            🎯 本格受験（15問15分）
+                    </div>
+        <div class="exam-type-details">
+                            しっかりとした模擬試験で実力を測定できます。本番さながらの環境で受験できます。
+                    </div>
+    </div>
+    
+        
+    <!-- カテゴリ選択 -->
+    <div class="category-selection">
+                                <a href="../pre-exam/8c8cf.html" class="category-card">
+                <div class="category-icon">
+                    <div class="icon icon-english"></div>
+                </div>
+                <div class="category-content">
+                    <h2 class="category-name">言語</h2>
+                                                        </div>
+            </a>
+                                <a href="../pre-exam/13c8cf.html" class="category-card">
+                <div class="category-icon">
+                    <div class="icon icon-english"></div>
+                </div>
+                <div class="category-content">
+                    <h2 class="category-name">非言語</h2>
+                                                        </div>
+            </a>
+                                <a href="../pre-exam/4c8cf.html" class="category-card">
+                <div class="category-icon">
+                    <div class="icon icon-english"></div>
+                </div>
+                <div class="category-content">
+                    <h2 class="category-name">英語</h2>
+                                                        </div>
+            </a>
+            </div>
+</main>
+        </main>
+        
+        <!-- フッター（受験画面・会員登録画面では非表示） -->
+                
+        <footer class="footer" style="">
+            <nav class="footer-nav">
+                <a href="https://twostone-s.com/about/company/" target="_blank" rel="noopener">運営会社</a>
+                <a href="../../terms.html">利用規約</a>
+                <a href="https://twostone-s.com/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+                <a href="../../index.html">TOPへ</a>
+            </nav>
+        </footer>
+    </div>
+    
+    
+    </body>
+
+<!-- Mirrored from spi.bakusoku-shukatsu.jp/exam/select-category/full by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Aug 2025 13:03:13 GMT -->
+</html> 
