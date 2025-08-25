@@ -1,144 +1,797 @@
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!DOCTYPE html>
+<html lang="ja">
 
+<!-- Mirrored from spi.bakusoku-shukatsu.jp/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Aug 2025 12:58:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="description" content="HTTrack is an easy-to-use website mirror utility. It allows you to download a World Wide website from the Internet to a local directory,building recursively all structures, getting html, images, and other files from the server to your computer. Links are rebuiltrelatively so that you can freely browse to the local site (works with any browser). You can mirror several sites together so that you can jump from one toanother. You can, also, update an existing mirror site, or resume an interrupted download. The robot is fully configurable, with an integrated help" />
-	<meta name="keywords" content="httrack, HTTRACK, HTTrack, winhttrack, WINHTTRACK, WinHTTrack, offline browser, web mirror utility, aspirateur web, surf offline, web capture, www mirror utility, browse offline, local  site builder, website mirroring, aspirateur www, internet grabber, capture de site web, internet tool, hors connexion, unix, dos, windows 95, windows 98, solaris, ibm580, AIX 4.0, HTS, HTGet, web aspirator, web aspirateur, libre, GPL, GNU, free software" />
-	<title>Local index - HTTrack Website Copier</title>
-  <!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
-	<style type="text/css">
-	<!--
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="MSJgq0sV0vpxvjW147k43tyVSOduzwYQzuV3Cm0t">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../www.googletagmanager.com/gtm5445.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WM24JJQN');</script>
+    <!-- End Google Tag Manager -->
+    
+<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet" />
+    <title>バクソクＳＰＩ - SPI対策と練習問題</title>
+    
+    <style>
+    /* ================================================
+       HOMEページ用CSS（HTML化/home/index.html完全準拠版）
+       ================================================ */
 
-body {
-	margin: 0;  padding: 0;  margin-bottom: 15px;  margin-top: 8px;
-	background: #77b;
-}
-body, td {
-	font: 14px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	}
+    /* 基本リセット */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-#subTitle {
-	background: #000;  color: #fff;  padding: 4px;  font-weight: bold; 
-	}
+    html {
+      font-size: 100%;
+      scroll-behavior: smooth;
+    }
 
-#siteNavigation a, #siteNavigation .current {
-	font-weight: bold;  color: #448;
-	}
-#siteNavigation a:link    { text-decoration: none; }
-#siteNavigation a:visited { text-decoration: none; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: #333;
+      background-color: #f4f6f8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-#siteNavigation .current { background-color: #ccd; }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
 
-#siteNavigation a:hover   { text-decoration: none;  background-color: #fff;  color: #000; }
-#siteNavigation a:active  { text-decoration: none;  background-color: #ccc; }
+    /* 全体コンテナ */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      min-height: 100vh;
+      background-color: #fff;
+      margin: 0 auto;
+      padding: 0;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
 
+    /* ヘッダー（非固定） */
+    .header {
+      height: 65px;
+      background-color: #f8f9fa;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
 
-a:link    { text-decoration: underline;  color: #00f; }
-a:visited { text-decoration: underline;  color: #000; }
-a:hover   { text-decoration: underline;  color: #c00; }
-a:active  { text-decoration: underline; }
+    .logo {
+      width: 35px;
+      height: 35px;
+      background-image: url('images/v1_5.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-right: 10px;
+    }
 
-#pageContent {
-	clear: both;
-	border-bottom: 6px solid #000;
-	padding: 10px;  padding-top: 20px;
-	line-height: 1.65em;
-	background-image: url(backblue.gif);
-	background-repeat: no-repeat;
-	background-position: top right;
-	}
+    .site-title {
+      color: #2f98a5;
+      font-weight: bold;
+      font-size: 1.25rem;
+    }
 
-#pageContent, #siteNavigation {
-	background-color: #ccd;
-	}
+    /* メインコンテンツ */
+    .main-content {
+      padding: 0 20px 2rem;
+    }
 
+    /* ページタイトル */
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+      text-align: center;
+      padding-top: 20px;
+    }
 
-.imgLeft  { float: left;   margin-right: 10px;  margin-bottom: 10px; }
-.imgRight { float: right;  margin-left: 10px;   margin-bottom: 10px; }
+    .last-updated {
+      font-size: 0.8125rem;
+      color: #868e96;
+      text-align: right;
+      margin-bottom: 2rem;
+    }
 
-hr { height: 1px;  color: #000;  background-color: #000;  margin-bottom: 15px; }
+    /* ヒーローバナー */
+    .hero-banner {
+      width: 100%;
+      height: 200px;
+      background-image: url('images/v1_154.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      margin-bottom: 2rem;
+      border-radius: 0;
+    }
 
-h1 { margin: 0;  font-weight: bold;  font-size: 2em; }
-h2 { margin: 0;  font-weight: bold;  font-size: 1.6em; }
-h3 { margin: 0;  font-weight: bold;  font-size: 1.3em; }
-h4 { margin: 0;  font-weight: bold;  font-size: 1.18em; }
+    /* セクション */
+    .section {
+      margin-bottom: 2.5rem;
+    }
 
-.blak { background-color: #000; }
-.hide { display: none; }
-.tableWidth { min-width: 400px; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2f98a5;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(47, 152, 165, 0.2);
+    }
 
-.tblRegular       { border-collapse: collapse; }
-.tblRegular td    { padding: 6px;  background-image: url(fade.gif);  border: 2px solid #99c; }
-.tblHeaderColor, .tblHeaderColor td { background: #99c; }
-.tblNoBorder td   { border: 0; }
+    .sub-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000000;
+      margin-top: 1rem;
+      margin-bottom: 0.75rem;
+    }
 
+    .section-content {
+      font-size: 0.9375rem;
+      color: #4a4a4a;
+      line-height: 1.7;
+    }
 
-// -->
-</style>
+    .section-content p {
+      margin-bottom: 1rem;
+    }
 
+    .section-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* おすすめツールセクション */
+    .tools-section {
+      background-color: #eefbfd;
+      border: 1px solid #d0ebef;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tools-title {
+      font-size: 1.375rem;
+      font-weight: bold;
+      color: #2f98a5;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .tool-card {
+      background-color: #fff;
+      border: 1px solid #d1eaf0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tool-icon {
+      width: 60px;
+      height: 60px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      margin: 0 auto 0.75rem;
+    }
+
+    .tool-card:nth-child(1) .tool-icon {
+      background-image: url('images/v1_174.png');
+    }
+
+    .tool-card:nth-child(2) .tool-icon {
+      background-image: url('images/v1_173.png');
+    }
+
+    .tool-name {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .tool-catchphrase {
+      font-size: 0.875rem;
+      color: #333;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .tool-features {
+      font-size: 0.8125rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .tool-button {
+      display: inline-block;
+      background-color: #F65B11;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+      margin: 0 auto;
+      width: fit-content;
+    }
+
+    .tool-button:hover {
+      background-color: #e54d0f;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* 練習問題セクション */
+    .questions-section {
+      margin-bottom: 2rem;
+    }
+
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .question-card {
+      background-color: #E0FCFF;
+      border: 1px solid #949494;
+      border-radius: 5px;
+      padding: 1rem;
+    }
+
+    .question-title {
+      font-size: 0.9375rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 0.75rem;
+    }
+
+    .question-text {
+      font-size: 0.8125rem;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      white-space: pre-line;
+    }
+
+    .question-button {
+      display: inline-block;
+      background-color: #F65B11;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8125rem;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+      width: 100%;
+      max-width: 200px;
+      text-align: center;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .question-button:hover {
+      background-color: #e54d0f;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* テストカテゴリ */
+    .test-categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .test-category {
+      margin-bottom: 1rem;
+    }
+
+    .category-name {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2f98a5;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-desc {
+      font-size: 0.875rem;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+
+    /* CTAバナー */
+    .cta-banner {
+      background-color: #f0f8ff;
+      border: 1px solid #c0d9e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: #2f98a5;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .cta-text {
+      font-size: 0.875rem;
+      color: #4a4a4a;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      background-color: #2f98a5;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.875rem 2rem;
+      border-radius: 25px;
+      font-size: 0.9375rem;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #257a84;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* 編集者情報 */
+    .editor-info {
+      background-color: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .editor-details {
+      font-size: 0.8125rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* フッター */
+    .footer {
+      background-color: #f8f9fa;
+      border-top: 1px solid #e0e0e0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-nav a {
+      color: #2f98a5;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #267a84;
+      text-decoration: underline;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .tools-grid,
+      .questions-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .main-content {
+        padding: 0 15px 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 90%;
+      }
+      
+      .header {
+        padding: 0 15px;
+      }
+      
+      .logo { 
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+      }
+      
+      .site-title { 
+        font-size: 1.125rem;
+      }
+      
+      .main-content {
+        padding: 0 12px 1.5rem;
+      }
+      
+      .hero-banner { 
+        height: 150px;
+        margin-bottom: 1.5rem;
+      }
+      
+      .page-title { 
+        font-size: 1.375rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .section-title { 
+        font-size: 1.25rem;
+      }
+      
+      .sub-title { 
+        font-size: 1.125rem;
+      }
+      
+      .section-content, 
+      .cta-text {
+        font-size: 0.875rem;
+      }
+      
+      .tool-card, 
+      .cta-banner,
+      .tools-section {
+        padding: 1rem;
+      }
+      
+      .tools-title, 
+      .cta-title {
+        font-size: 1.125rem;
+      }
+      
+      .tool-name, 
+      .tool-catchphrase { 
+        font-size: 0.875rem;
+      }
+      
+      .tool-features { 
+        font-size: 0.75rem;
+      }
+      
+      .tool-button, 
+      .question-button,
+      .cta-button {
+        font-size: 0.75rem;
+        padding: 0.625rem 1.25rem;
+      }
+      
+      .footer-nav { 
+        gap: 15px;
+      }
+      
+      .footer-nav a { 
+        font-size: 0.75rem;
+      }
+    }
+    </style>
 </head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WM24JJQN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <div class="logo"></div>
+            <span class="site-title">バクソクＳＰＩ</span>
+        </header>
 
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="3" class="tableWidth">
-	<tr>
-	<td id="subTitle">HTTrack Website Copier - Open Source offline browser</td>
-	</tr>
-</table>
-<table width="76%" border="0" align="center" cellspacing="0" cellpadding="0" class="tableWidth">
-<tr class="blak">
-<td>
-	<table width="100%" border="0" align="center" cellspacing="1" cellpadding="0">
-	<tr>
-	<td colspan="6"> 
-		<table width="100%" border="0" align="center" cellspacing="0" cellpadding="10">
-		<tr> 
-		<td id="pageContent"> 
-<!-- ==================== End prologue ==================== -->
+        <!-- メインコンテンツ -->
+        <main class="main-content">
+            <!-- ページタイトル -->
+            <h1 class="page-title">【SPIとは？】概要と練習問題で就活対策！</h1>
+            <p class="last-updated">最終更新：2025年6月8日</p>
 
-	<meta name="generator" content="HTTrack Website Copier/3.x">
-	<TITLE>Local index - HTTrack</TITLE>
-</HEAD>
-<BODY>
-<H1 ALIGN=Center>Index of locally available sites:</H1>
-	<TABLE BORDER="0" WIDTH="100%" CELLSPACING="1" CELLPADDING="0">
-		<TR>
-			<TD BACKGROUND="fade.gif">
-				&middot;
-					<A HREF="spi.bakusoku-shukatsu.jp/index.html">
-						バクソクＳＰＩ - SPI対策と練習問題
-					</A>		
-			</TD>
-		</TR>
-	</TABLE>
-	<BR>
-	<BR>
-	<BR>
-  	<H6 ALIGN="RIGHT">
-	<I>Mirror and index made by HTTrack Website Copier [XR&amp;CO'2008]</I>
-	</H6>
-	<!-- Mirror and index made by HTTrack Website Copier/3.49-2 [XR&CO'2014] -->
-	<!-- Thanks for using HTTrack Website Copier! -->
-	<meta HTTP-EQUIV="Refresh" CONTENT="0; URL=spi.bakusoku-shukatsu.jp/index.html">
+            <!-- ヒーローバナー -->
+            <div class="hero-banner"></div>
 
+            <!-- 就活におけるSPIとは？ -->
+            <section class="section">
+                <h2 class="section-title">就活におけるSPIとは？</h2>
+                <div class="section-content">
+                    <p>SPIは「Synthetic Personality Inventory」の略で、<strong>リクルートマネジメントソリューションズ社</strong>が開発した適性検査です。</p>
+                    <p>2025年現在、就職活動において特に使用率が高い<strong>適性検査</strong>の一種です。</p>
+                    <p>適性検査にはいくつもの種類がありますが、大学3年生が就活を始める段階で「まずSPIを意識しよう」と言われるほどの知名度を誇ります。</p>
+                    <p>実際、2024年卒の就活生を対象にしたアンケートでは、回答者の<strong>9割以上</strong>が「SPIを受検したことがある」と答えています。</p>
+                </div>
+            </section>
 
-<!-- ==================== Start epilogue ==================== -->
-		</td>
-		</tr>
-		</table>
-	</td>
-	</tr>
-	</table>
-</td>
-</tr>
-</table>
+            <!-- おすすめツール -->
+            <aside class="tools-section">
+                <h2 class="tools-title">効率的にSPI対策！<br>おすすめツール</h2>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon"></div>
+                        <h3 class="tool-name">SPI練習問題</h3>
+                        <p class="tool-catchphrase">実際のテスト形式で<br>SPIの力試しをしたい！</p>
+                        <div class="tool-features">
+                            ✅言語・非言語・英語に対応<br>
+                            ✅最短5分で受験可能<br>
+                            ✅本番の雰囲気を味わえる
+                        </div>
+                        <a href="exam/select-mode.html" class="tool-button">今すぐ受験</a>
+                    </div>
+                    <div class="tool-card">
+                        <div class="tool-icon"></div>
+                        <h3 class="tool-name">SPI対策問題集</h3>
+                        <p class="tool-catchphrase">問題集で網羅的にSPIの対策をしたい！</p>
+                        <div class="tool-features">
+                            ✅頻出問題を厳選<br>
+                            ✅自分が苦手な分野がわかる<br>
+                            ✅詳細な解説つき
+                        </div>
+                        <a href="lp.html" class="tool-button">今すぐダウンロード</a>
+                    </div>
+                </div>
+            </aside>
 
-<table width="76%" border="0" align="center" valign="bottom" cellspacing="0" cellpadding="0">
-	<tr>
-	<td id="footer"><small>&copy; 2008 Xavier Roche & other contributors - Web Design: Leto Kauler.</small></td>
-	</tr>
-</table>
+            <!-- なぜ多くの企業がSPIを活用しているのか？ -->
+            <section class="section">
+                <h2 class="section-title">なぜ多くの企業がSPIを活用しているのか？</h2>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title">客観的な評価指標を得るため</h3>
+                    <p class="section-content">
+                        書類選考や面接だけでは分かりにくい<strong>知的能力</strong>や<strong>性格特性</strong>を数値やデータで測定できる点がSPIの最大の魅力です。<br>
+                        企業としては、業務に必要な基礎力や人柄を短時間で把握しやすくなるため、選考の効率化につながります。
+                    </p>
+                </div>
 
+                <div class="sub-section">
+                    <h3 class="sub-title">社風・業務との相性を確認しミスマッチを防ぐため</h3>
+                    <p class="section-content">
+                        早期退職や配置転換のコストを減らしたい企業にとって、応募者が自社の雰囲気や業務内容に合うかどうかは非常に重要です。<br>
+                        SPIの結果をもとに部署配属を判断するケースも多く、「<strong>配属先</strong>が人によって異なる」業態の企業ほどSPIを重視する傾向があります。
+                    </p>
+                </div>
+
+                <div class="sub-section">
+                    <h3 class="sub-title">採用ブランディングの一部にもなる</h3>
+                    <p class="section-content">
+                        SPI導入企業の多くは、学生から「しっかりとした経営基盤のある会社」と見られやすい企業です。<br>
+                        企業側としても、<strong>一定</strong>の学力や思考力を備えている人材を求めている姿勢を示すことができ、ブランディングに繋がります。
+                    </p>
+                </div>
+            </section>
+
+            <!-- 練習問題セクション -->
+            <section class="questions-section">
+                <div class="questions-grid">
+                    <!-- 問題1 -->
+                    <div class="question-card">
+                        <h3 class="question-title">抑えておきたい！SPI練習問題</h3>
+                        <div class="question-text">
+                            最初に示された二語の関係を考えて、同じ関係のものを選びなさい。<br><br>
+                            慈善：寄付<br><br>
+                            ア. 裁判：判決<br>
+                            イ. 教育：授業<br>
+                            ウ. 研究：論文<br><br>
+                            【選択肢】<br>
+                            A. アだけ<br>
+                            B. イだけ<br>
+                            C. ウだけ<br>
+                            D. アとイ<br>
+                            E. アとウ<br>
+                            F. イとウ
+                        </div>
+                        <a href="exam/pre-exam/8.html" class="question-button">回答する</a>
+                    </div>
+
+                    <!-- 問題2 -->
+                    <div class="question-card">
+                        <h3 class="question-title">【頻出例題】語句の意味</h3>
+                        <div class="question-text">
+                            下記の表現と、意味が合致するものを1つ選びなさい。<br><br>
+                            本音を隠さずに、心の中にあることを正直に話すこと。<br><br>
+                            【選択肢】<br>
+                            A. 口を出す<br>
+                            B. 手を尽くす<br>
+                            C. 胸をなでおろす<br>
+                            D. 腹を割る<br>
+                            E. 足を踏み入れる
+                        </div>
+                        <a href="exam/pre-exam/9.html" class="question-button">回答する</a>
+                    </div>
+
+                    <!-- 問題3 -->
+                    <div class="question-card">
+                        <h3 class="question-title">【例題】語句の用法</h3>
+                        <div class="question-text">
+                            下線部の語が最も近い意味で使われているものを1つ選びなさい。<br><br>
+                            その件については、しっかりみとめるべきだ。<br><br>
+                            【選択肢】<br>
+                            A. 彼は自分のまちがいをみとめた。<br>
+                            B. 先生は彼の才能をみとめていた。<br>
+                            C. その選手は世界中でみとめられている。<br>
+                            D. 社長は新しいプロジェクトをみとめた。<br>
+                            E. 彼は部屋に誰かがいるのをみとめた。
+                        </div>
+                        <a href="exam/pre-exam/10.html" class="question-button">回答する</a>
+                    </div>
+
+                    <!-- 問題4 -->
+                    <div class="question-card">
+                        <h3 class="question-title">【例題】割合</h3>
+                        <div class="question-text">
+                            ある映画についてのアンケート調査を行った。<br>
+                            男性 800人 、女性 600人 に回答してもらった。<br>
+                            回答者のうち、この映画を 週に1回以上視聴する 人の割合は 28% であった。<br>
+                            また、女性のうち 週に1回以上視聴する 人の割合は 22% であった。<br>
+                            この映画を 週に1回以上視聴する人 の割合は 男性では何% であるか。<br>
+                            必要に応じて、小数点第一位以下を四捨五入せよ。<br><br>
+                            【選択肢】<br>
+                            A. 30%<br>
+                            B. 33%<br>
+                            C. 36%<br>
+                            D. 39%
+                        </div>
+                        <a href="exam/pre-exam/14.html" class="question-button">回答する</a>
+                    </div>
+
+                    <!-- 問題5 -->
+                    <div class="question-card">
+                        <h3 class="question-title">【例題】反意語</h3>
+                        <div class="question-text">
+                            次の単語と反対の意味の語を、AからEまでの中から一つ選びなさい。<br><br>
+                            generous<br><br>
+                            【選択肢】<br>
+                            A. selfish<br>
+                            B. honest<br>
+                            C. polite<br>
+                            D. clever<br>
+                            E. simple
+                        </div>
+                        <a href="exam/pre-exam/5.html" class="question-button">回答する</a>
+                    </div>
+
+                    <div class="question-card">
+                        <h3 class="question-title">【例題】単語の意味</h3>
+                        <div class="question-text">
+                            次の説明文に最も近い意味を持つものを、AからEまでの中から1つ選びなさい。<br><br>
+                            to look at something quickly and then look away<br><br>
+                            【選択肢】<br>
+                            A. stare<br>
+                            B. glance<br>
+                            C. observe<br>
+                            D. notice<br>
+                            E. examine
+                        </div>
+                        <a href="exam/pre-exam/6.html" class="question-button">回答する</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SPIの試験内容 -->
+            <section class="section">
+                <h2 class="section-title">SPIの試験内容</h2>
+                
+                <div class="sub-section">
+                    <h3 class="sub-title">能力検査</h3>
+                    <div class="test-categories">
+                        <div class="test-category">
+                            <h4 class="category-name">言語</h4>
+                            <p class="category-desc">中学～高校レベルの国語力、読解力、語彙力などが問われます。</p>
+                        </div>
+                        <div class="test-category">
+                            <h4 class="category-name">非言語</h4>
+                            <p class="category-desc">高校数学I・Aレベルの計算力や論理的思考力、図表読み取りなどが出題されます。特に<strong>「推論」「場合の数」</strong>は高頻出です。</p>
+                        </div>
+                        <div class="test-category">
+                            <h4 class="category-name">英語／構造的把握</h4>
+                            <p class="category-desc">一部の企業は英語検査（同意語・反意語など）やロジカル思考を測る構造的把握力検査を加えることがあります。総合商社やコンサルファームなど、外資系・難関企業で導入されることが多いです。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-section">
+                    <h3 class="sub-title">性格検査</h3>
+                    <p class="section-content">
+                        約300問の質問に対し、自己評価のスタンスで答える形式です。<br>
+                        応募者の思考パターンや対人関係へのアプローチを把握し、自社の文化に馴染みそうかの確認が行われます。<br>
+                        嘘や誇張を見抜く仕組みが存在するため、企業受けしそうな回答を狙いすぎると逆に不自然さが浮き彫りになるというリスクもあります。
+                    </p>
+                </div>
+            </section>
+
+            <!-- CTA 1 -->
+            <aside class="cta-banner">
+                <h3 class="cta-title">「SPI練習問題」で事前に対策しよう！</h3>
+                <p class="cta-text">
+                    SPIの本番を受験するチャンスはたった一度のみです。<br>
+                    環境の違いに戸惑い、緊張も相まって練習どおりに問題を解くことができないこともよくあります。<br><br>
+                    そうならないためにも<strong>「SPI練習問題」</strong>で事前に練習することがおすすめです！<br><br>
+                    <strong>「SPI練習問題」</strong>なら<strong>1科目最短5分</strong>から受験可能です。<br>
+                    制限時間タイマーもあるので、本番に近い環境で受験することができます。<br><br>
+                    何度でも受験可能ですので、本番前の練習にピッタリです！
+                </p>
+                <a href="exam/select-mode.html" class="cta-button">「SPI練習問題」を受験してみる！</a>
+            </aside>
+
+            <!-- 編集者情報 -->
+            <aside class="editor-info">
+                <h3 class="visually-hidden">編集者情報</h3>
+                <p class="editor-details">
+                    <strong>編集者：Taro</strong><br><br>
+                    1997年生まれ。大学時代の長期インターンで人事採用担当として300人以上の学生と面談を行う。現在はその経験を活かし、新卒入社した会社で就活生への就活アドバイスを行なっている。
+                </p>
+            </aside>
+
+        </main>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <nav class="footer-nav">
+                <a href="https://twostone-s.com/about/company/" target="_blank" rel="noopener">運営会社</a>
+                <a href="terms.html">利用規約</a>
+                <a href="https://twostone-s.com/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>
+                <a href="index.html">TOPへ</a>
+            </nav>
+        </footer>
+</div>
 </body>
 
-</html>
-
-
+<!-- Mirrored from spi.bakusoku-shukatsu.jp/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Aug 2025 12:59:36 GMT -->
+</html> 
