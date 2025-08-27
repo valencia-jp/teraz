@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF‑8">
+    <!--
+      Base layout for the exam application.  This template defines
+      a header, footer and container area for page content.  It
+      includes a simple stylesheet stored in static/style.css.  The
+      title variable can be overridden by child templates; if not
+      provided a default name is used.  Flash messages are rendered
+      when present.
+    -->
+    <title>{{ title or "SPI 模擬試験" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="{{ url_for('select_mode') }}">SPI 模擬試験</a></h1>
+        </div>
+    </header>
+    <main class="container">
+        {# Display flashed messages if any exist.  Each message is
+           associated with a category (e.g. 'error') so we can style
+           them differently. #}
+        {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+            <div class="flash‑messages">
+              {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; {{ current_year }} Custom Exam App</p>
+        </div>
+    </footer>
+</body>
+</html>

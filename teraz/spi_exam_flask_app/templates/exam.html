@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{#
+  This template renders the question page for the exam.  A single
+  template is reused for all questions; the question content and
+  state (index, total, time limit) are passed in from the Flask
+  route.  The design attempts to mirror the layout of the original
+  service while remaining responsive and accessible.
+#}
+
+{% block content %}
+<div class="exam-page">
+    <!-- Subject and close icon row -->
+    <div class="exam-header">
+        <div class="subject">{{ subject_title }}</div>
+        <!-- In a production app you might implement a close button to cancel
+             the exam.  It is omitted here to keep the example focused. -->
+    </div>
+    <!-- Answer time indicators and circular timer -->
+    <div class="exam-meta">
+        <div class="answer-time">
+            <span class="label">回答時間</span>
+            <div class="progress-bars">
+                {% for i in range(total) %}
+                <div class="bar{% if i < index %} done{% elif i == index %} current{% endif %}"></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="timer-circle">
+            <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80">
+                <!-- Background circle -->
+                <circle class="timer-bg" cx="40" cy="40" r="36"></circle>
+                <!-- Progress circle; stroke-dasharray and offset will be set via JS -->
+                <circle class="timer-progress" cx="40" cy="40" r="36"></circle>
+                <!-- Remaining time text -->
+                <text class="timer-text" x="40" y="43" text-anchor="middle" dominant-baseline="middle">{{ time_limit }}</text>
+            </svg>
+        </div>
+    </div>
+    <!-- Instruction pill -->
+    <div class="instruction">次の文章を読んで問いに答えなさい。</div>
+    <!-- Question title and text -->
+    <div class="question-block">
+        <p class="question-title">問題 {{ index + 1 }}/{{ total }}</p>
+        <div class="question-text">{{ question.question|safe }}</div>
+    </div>
+    <!-- Options and Next button -->
+    <form action="{{ url_for('exam_answer') }}" method="post" id="question-form">
+        <div class="options-list">
+            {% for option in question.options %}
+            <label class="option-item">
+                <input type="radio" name="option" value="{{ loop.index0 }}">
+                <span>{{ option }}</span>
+            </label>
+            {% endfor %}
+        </div>
+        <button type="submit" class="button primary next-button" id="nextButton" disabled>次へ進む</button>
+    </form>
+</div>
+
+<script>
+// JavaScript to drive the countdown timer and enable the next button.
+(function() {
+  const form = document.getElementById('question-form');
+  const nextBtn = document.getElementById('nextButton');
+  const radios = form.querySelectorAll('input[type="radio"]');
+  const timerText = document.querySelector('.timer-text');
+  const progressCircle = document.querySelector('.timer-progress');
+  const radius = parseFloat(progressCircle.getAttribute('r'));
+  const circumference = 2 * Math.PI * radius;
+  // Set the circumference on the progress circle via style so that dash array is applied
+  progressCircle.style.strokeDasharray = `${circumference}`;
+  // Initial remaining time in seconds
+  let timeRemaining = parseInt(timerText.textContent, 10);
+  const totalTime = timeRemaining;
+
+  // Enable the next button when an option is selected
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      nextBtn.disabled = false;
+    });
+  });
+
+  function setProgress(value) {
+    // value is a fraction between 0 and 1 representing the percentage of time elapsed
+    const offset = circumference * value;
+    progressCircle.style.strokeDashoffset = offset;
+  }
+
+  function tick() {
+    timeRemaining--;
+    if (timeRemaining < 0) {
+      // Time is up: submit the form without a selection
+      form.submit();
+      return;
+    }
+    timerText.textContent = timeRemaining;
+    const progressValue = 1 - timeRemaining / totalTime;
+    setProgress(progressValue);
+    setTimeout(tick, 1000);
+  }
+  // Initialize progress to 0 and start ticking after 1 second
+  setProgress(0);
+  setTimeout(tick, 1000);
+})();
+</script>
+{% endblock %}
