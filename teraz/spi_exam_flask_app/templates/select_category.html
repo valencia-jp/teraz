@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>カテゴリを選択 ({{ mode|upper }})</h2>
+<p>受験するカテゴリを選択してください。</p>
+<ul class="category‑list">
+    <li><a href="{{ url_for('pre_exam', category='language', mode=mode) }}" class="button">言語</a></li>
+    <li><a href="{{ url_for('pre_exam', category='nonverbal', mode=mode) }}" class="button">非言語</a></li>
+    <li><a href="{{ url_for('pre_exam', category='english', mode=mode) }}" class="button">英語</a></li>
+</ul>
+<a href="{{ url_for('select_mode') }}" class="back‑link">← 戻る</a>
+{% endblock %}

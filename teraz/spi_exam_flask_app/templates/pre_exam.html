@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>受験内容確認</h2>
+<div class="exam‑info">
+    <h3>{{ info.title }}</h3>
+    <p>問題数: {{ info.num_questions }} 問</p>
+    <p>制限時間: {{ info.time_limit_minutes }} 分</p>
+    <form action="{{ url_for('exam_start') }}" method="post">
+        <input type="hidden" name="question_set_id" value="{{ info.question_set_id }}">
+        <button type="submit" class="button primary">この内容で受験スタート！</button>
+    </form>
+    <p><a href="{{ url_for('select_category', mode=info.mode) }}" class="back‑link">← 戻る</a></p>
+</div>
+{% endblock %}
