@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "easy_english_5q",
+  "title": "かんたん受験 - 英語",
+  "description": "基礎的な英単語と文法の理解を確認します。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Choose the antonym of 'difficult'.",
+      "options": ["hard", "simple", "sharp"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Which word best completes the sentence: 'She ____ the letter yesterday.'",
+      "options": ["write", "wrote", "written"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Select the word that has a similar meaning to 'begin'.",
+      "options": ["start", "end", "pause"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "What is the plural form of 'mouse'?",
+      "options": ["mouses", "mice", "mousees"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "Fill in the blank: 'The weather today is ______ than yesterday.'",
+      "options": ["good", "better", "best"],
+      "answer_index": 1
+    }
+  ]
+}
