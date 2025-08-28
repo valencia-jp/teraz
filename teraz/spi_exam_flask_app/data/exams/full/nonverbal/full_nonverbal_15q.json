@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "mode": "full",
+  "category": "nonverbal",
+  "slug": "full_nonverbal_15q",
+  "title": "本格受験 - 非言語",
+  "description": "計算・図形・論理問題を含む15問の模擬問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "12 + 15 - 7 の値はいくつか。",
+      "options": ["18", "20", "22"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "次の数列の?に入る数を選びなさい。<br>3, 6, 9, 12, ?",
+      "options": ["14", "15", "18"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "半径2の円の面積に最も近いものを選びなさい。（円周率は3.14とする）",
+      "options": ["9.42", "12.56", "15.08"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "次のうち、奇数はどれか。",
+      "options": ["42", "57", "68"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "3 : 5 = 9 : ? に入る数を求めなさい。",
+      "options": ["12", "13", "15"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q6",
+      "type": "mc",
+      "prompt_html": "図形の回転に関する問題です。四角形を90度時計回りに回転させたとき、上側に位置する辺は元のどの辺か。",
+      "options": ["上辺", "右辺", "左辺"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q7",
+      "type": "mc",
+      "prompt_html": "ある商品の価格を10%値下げしたところ1800円になりました。値下げ前の価格はいくらか。",
+      "options": ["1600円", "2000円", "2200円"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q8",
+      "type": "mc",
+      "prompt_html": "サイコロを1回振ったとき、3以上の目が出る確率として正しいものを選びなさい。",
+      "options": ["1/2", "2/3", "3/4"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q9",
+      "type": "mc",
+      "prompt_html": "□に当てはまる数を求めなさい。<br>7 × □ = 56",
+      "options": ["6", "7", "8"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q10",
+      "type": "mc",
+      "prompt_html": "立方体の面の数はいくつか。",
+      "options": ["4", "6", "8"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q11",
+      "type": "mc",
+      "prompt_html": "一次方程式 3x + 9 = 0 の解はどれか。",
+      "options": ["-3", "-2", "3"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q12",
+      "type": "mc",
+      "prompt_html": "次の数列の規則に従う数を選びなさい。<br>5, 8, 13, 21, ?",
+      "options": ["26", "32", "34"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q13",
+      "type": "mc",
+      "prompt_html": "ある町の人口は今年1万2000人で、毎年5%ずつ増加するとします。5年後の人口に最も近いものを選びなさい。",
+      "options": ["1万5000人", "1万5300人", "1万5308人"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q14",
+      "type": "mc",
+      "prompt_html": "1時間は何秒か。",
+      "options": ["6000秒", "3600秒", "7200秒"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q15",
+      "type": "mc",
+      "prompt_html": "下図の三角形の数として正しいものを選びなさい。<br>（等辺三角形3つが組み合わさって大きな三角形を形成していると仮定）",
+      "options": ["3", "4", "6"],
+      "answer_index": 1
+    }
+  ]
+}
