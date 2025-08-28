@@ -1,32 +1,27 @@
 {% extends "base.html" %}
 
-{#
-  This template renders the question page for the exam.  A single
-  template is reused for all questions; the question content and
-  state (index, total, time limit) are passed in from the Flask
-  route.  The design attempts to mirror the layout of the original
-  service while remaining responsive and accessible.
-#}
+{# 一枚テンプレで全設問を描画。テキストは変更せず、見た目のみ更新。 #}
 
 {% block content %}
-<div class="exam-page">
+<div id="examPage" class="exam-page state-unanswered {% if index + 1 == total %}last-question{% endif %}">
     <!-- Subject and close icon row -->
     <div class="exam-header">
         <div class="subject">{{ subject_title }}</div>
         <a class="close-btn" href="{{ url_for('select_mode') }}" aria-label="close">&times;</a>
     </div>
+
     <!-- Answer time indicators and circular timer -->
     <div class="exam-meta">
         <div class="answer-time">
             <span class="label">回答時間</span>
             <div class="progress-bars">
                 {% for i in range(total) %}
-                <div class="bar{% if i < index %} done{% elif i == index %} current{% endif %}"></div>
+                  <div class="bar{% if i < index %} done{% elif i == index %} current{% else %} pending{% endif %}"></div>
                 {% endfor %}
             </div>
         </div>
-        <div class="timer-circle">
-            <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80">
+        <div class="timer-circle" aria-live="polite">
+            <svg class="timer-svg" width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="残り時間">
                 <!-- Background circle -->
                 <circle class="timer-bg" cx="40" cy="40" r="36"></circle>
                 <!-- Progress circle; stroke-dasharray and offset will be set via JS -->
@@ -36,13 +31,16 @@
             </svg>
         </div>
     </div>
+
     <!-- Instruction pill -->
     <div class="instruction">次の文章を読んで問いに答えなさい。</div>
+
     <!-- Question title and text -->
     <div class="question-block">
         <p class="question-title">問題 {{ index + 1 }}/{{ total }}</p>
         <div class="question-text">{{ question.prompt_html|safe }}</div>
     </div>
+
     <!-- Options and Next button -->
     <form action="{{ url_for('exam_answer') }}" method="post" id="question-form">
         <div class="options-list">
@@ -58,33 +56,42 @@
 </div>
 
 <script>
-// JavaScript to drive the countdown timer and enable the next button.
+/* カウントダウン・選択時の強調・送信中の見た目（スピナー）を制御 */
 (function() {
-  const form = document.getElementById('question-form');
+  const page   = document.getElementById('examPage');
+  const form   = document.getElementById('question-form');
   const nextBtn = document.getElementById('nextButton');
   const radios = form.querySelectorAll('input[type="radio"]');
   const timerText = document.querySelector('.timer-text');
   const progressCircle = document.querySelector('.timer-progress');
   const radius = parseFloat(progressCircle.getAttribute('r'));
   const circumference = 2 * Math.PI * radius;
-  // Set the circumference on the progress circle via style so that dash array is applied
+
+  // stroke-dasharray を設定
   progressCircle.style.strokeDasharray = `${circumference}`;
-  // Initial remaining time in seconds
+
+  // 初期の残り秒
   let timeRemaining = parseInt(timerText.textContent, 10);
   const totalTime = timeRemaining;
 
-  // Enable the next button when an option is selected
+  // 選択されたら有効化＆行のハイライト
   radios.forEach(radio => {
     radio.addEventListener('change', () => {
       nextBtn.disabled = false;
-      // highlight selected option
+      page.classList.remove('state-unanswered');
+      page.classList.add('state-answered');
       document.querySelectorAll('.option-item').forEach(l => l.classList.remove('selected'));
       radio.closest('.option-item').classList.add('selected');
     });
   });
 
+  // 送信直前の視覚状態（スピナー）
+  form.addEventListener('submit', () => {
+    page.classList.add('state-submitting');
+  });
+
   function setProgress(value) {
-    // value is a fraction between 0 and 1 representing the percentage of time elapsed
+    // value: 0〜1（経過割合）
     const offset = circumference * value;
     progressCircle.style.strokeDashoffset = offset;
   }
@@ -92,7 +99,7 @@
   function tick() {
     timeRemaining--;
     if (timeRemaining < 0) {
-      // Time is up: submit the form without a selection
+      page.classList.add('state-submitting'); // 自動送信でも反映
       form.submit();
       return;
     }
@@ -101,7 +108,8 @@
     setProgress(progressValue);
     setTimeout(tick, 1000);
   }
-  // Initialize progress to 0 and start ticking after 1 second
+
+  // 初期化
   setProgress(0);
   setTimeout(tick, 1000);
 })();
