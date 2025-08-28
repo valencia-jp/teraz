@@ -3,80 +3,80 @@
  * provide a clean and simple layout without relying on any external
  * CSS frameworks.  Colours and spacing are inspired by modern web
  * design but can be customized as desired.  Mobile responsiveness
- * comes naturally with percentage‑based widths and flexible margins.
+ * comes naturally with percentage-based widths and flexible margins.
  */
 
 body {
-    font‑family: system‑ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Helvetica, Arial, sans-serif;
-    background‑color: #f9fafb;
+    background-color: #f9fafb;
     margin: 0;
     padding: 0;
     color: #333;
 }
 
 .container {
-    max‑width: 800px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
 }
 
 header {
-    background‑color: #00a7e1;
+    background-color: #00a7e1;
     color: white;
     padding: 1rem 0;
 }
 
 header h1 {
     margin: 0;
-    font‑size: 1.5rem;
-    text‑align: center;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 header a {
     color: inherit;
-    text‑decoration: none;
+    text-decoration: none;
 }
 
 footer {
-    text‑align: center;
+    text-align: center;
     padding: 1rem;
-    font‑size: 0.8rem;
+    font-size: 0.8rem;
     color: #777;
 }
 
 h2 {
-    margin‑top: 0;
-    font‑size: 1.5rem;
+    margin-top: 0;
+    font-size: 1.5rem;
 }
 
 h3 {
-    font‑size: 1.2rem;
+    font-size: 1.2rem;
 }
 
-ul.mode‑list,
-ul.category‑list {
-    list‑style: none;
+ul.mode-list,
+ul.category-list {
+    list-style: none;
     padding: 0;
 }
 
-.mode‑list li,
-.category‑list li {
+.mode-list li,
+.category-list li {
     margin: 0.5rem 0;
 }
 
 .button {
     display: inline-block;
     padding: 0.6rem 1rem;
-    background‑color: #00a7e1;
+    background-color: #00a7e1;
     color: white;
-    text‑decoration: none;
-    border‑radius: 4px;
+    text-decoration: none;
+    border-radius: 4px;
     transition: opacity 0.2s ease;
 }
 
 .button.primary {
-    background‑color: #ff7a00;
+    background-color: #ff7a00;
 }
 
 .button:hover {
@@ -87,14 +87,14 @@ ul.category‑list {
     color: #aaa;
 }
 
-.back‑link {
+.back-link {
     display: inline-block;
-    margin‑top: 1rem;
+    margin-top: 1rem;
     color: #00a7e1;
-    text‑decoration: none;
+    text-decoration: none;
 }
 
-.exam‑info p {
+.exam-info p {
     margin: 0.5rem 0;
 }
 
@@ -103,60 +103,60 @@ ul.category‑list {
 }
 
 .timer {
-    font‑weight: bold;
-    margin‑bottom: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
-.flash‑messages .alert {
+.flash-messages .alert {
     padding: 0.5rem;
-    margin‑bottom: 1rem;
-    border‑radius: 4px;
+    margin-bottom: 1rem;
+    border-radius: 4px;
 }
 
-.flash‑messages .alert.error {
-    background‑color: #ffe5e5;
+.flash-messages .alert.error {
+    background-color: #ffe5e5;
     color: #c00;
 }
 
-/* Exam page specific styles */
+/* ===== Exam screen ===== */
 .exam-page {
-    background‑color: #fff;
+    background-color: #fff;
     padding: 1.5rem;
-    border‑radius: 8px;
-    box‑shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Header row with subject */
 .exam-header {
     display: flex;
-    justify‑content: space‑between;
-    align‑items: center;
-    margin‑bottom: 1rem;
-    font‑weight: 600;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 .exam-header .subject {
-    font‑size: 1rem;
+    font-size: 1rem;
     color: #555;
 }
 
 /* Meta row: answer time bars and timer circle */
 .exam-meta {
     display: flex;
-    justify‑content: space‑between;
-    align‑items: center;
-    margin‑bottom: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .answer-time {
     display: flex;
-    flex‑direction: column;
-    font‑size: 0.8rem;
+    flex-direction: column;
+    font-size: 0.8rem;
     color: #444;
 }
 
 .answer-time .label {
-    margin‑bottom: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 .progress-bars {
@@ -167,16 +167,14 @@ ul.category‑list {
 .progress-bars .bar {
     width: 16px;
     height: 6px;
-    border‑radius: 2px;
-    background‑color: #e1e4e8;
+    border-radius: 2px;
+    background-color: #f5cfd6;  /* pending / 未了（淡ピンク） */
 }
-
 .progress-bars .bar.done {
-    background‑color: #A5D6A7; /* light green for completed questions */
+    background-color: #00a7e1;  /* 完了（青） */
 }
-
 .progress-bars .bar.current {
-    background‑color: #FFB74D; /* orange for current question */
+    background-color: #ffb74d;  /* 現在（オレンジ） */
 }
 
 /* Circular timer styles */
@@ -185,135 +183,143 @@ ul.category‑list {
     height: 80px;
     position: relative;
 }
-
 .timer-svg {
     width: 80px;
     height: 80px;
     transform: rotate(-90deg);
 }
-
 .timer-bg {
     fill: none;
     stroke: #f0f0f0;
-    stroke‑width: 6;
+    stroke-width: 6;
 }
-
 .timer-progress {
     fill: none;
     stroke: #00a7e1;
-    stroke‑width: 6;
-    stroke‑linecap: round;
-    transition: stroke‑dashoffset 1s linear;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
 }
-
 .timer-text {
     fill: #333;
-    font‑size: 0.9rem;
+    font-size: 0.9rem;
     transform: rotate(90deg);
 }
 
 /* Instruction pill */
 .instruction {
-    background‑color: #f7f7f7;
-    border‑radius: 4px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
     padding: 0.75rem 1rem;
-    margin‑bottom: 1rem;
-    font‑size: 0.9rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
     color: #555;
 }
 
 /* Question block */
 .question-block {
-    margin‑bottom: 1rem;
+    margin-bottom: 1rem;
 }
-
 .question-title {
-    font‑weight: 600;
-    margin‑bottom: 0.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
-
 .question-text {
-    margin‑bottom: 1rem;
-    line‑height: 1.5;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
 /* Options list */
 .options-list {
     border: 1px solid #ddd;
-    border‑radius: 4px;
+    border-radius: 4px;
     overflow: hidden;
-    margin‑bottom: 1rem;
+    margin-bottom: 1rem;
 }
-
 .option-item {
     display: flex;
-    align‑items: center;
+    align-items: center;
+    gap: .5rem;
     padding: 0.6rem 0.8rem;
-    font‑size: 0.95rem;
-    border‑bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
 }
-
 .option-item:last-child {
-    border‑bottom: none;
+    border-bottom: none;
 }
-
 .option-item input[type="radio"] {
-    margin‑right: 0.5rem;
+    accent-color: #00a7e1;
+    margin-right: 0.25rem;
+}
+.option-item:hover {
+    background-color: #f7fbfd;
+}
+.option-item.selected {
+    background-color: #e6f4f7;
+    border-left: 4px solid #00a7e1;
 }
 
+/* Next button */
 .next-button {
     width: 100%;
     padding: 0.8rem;
-    font‑size: 1rem;
-    margin‑top: 1rem;
-    border‑radius: 25px;
-    text‑align: center;
+    font-size: 1rem;
+    margin-top: 1rem;
+    border-radius: 25px;
+    text-align: center;
     border: none;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, background-color .2s ease;
 }
-
 .next-button:disabled {
-    background‑color: #e0e0e0;
+    background-color: #e0e0e0;
     color: #aaa;
-    cursor: not‑allowed;
+    cursor: not-allowed;
 }
-
 .next-button:not(:disabled) {
-    background‑color: #00a7e1;
+    background-color: #00a7e1;
     color: #fff;
 }
 
-/* Additional tweaks for redesigned exam screen */
+/* Header close icon */
 .close-btn {
     text-decoration: none;
     font-size: 1.25rem;
     color: #999;
     line-height: 1;
 }
-
 .close-btn:hover {
     color: #333;
 }
 
-.progress-bars .bar.done {
-    background-color: #00a7e1;
+/* --- State based refinements for screenshot fidelity --- */
+.exam-page.state-unanswered .next-button {
+    background-color: #e9edf1;
+    color: #b6b6b6;
 }
-
-.progress-bars .bar.current {
-    background-color: #ffb74d;
+.exam-page.state-answered .next-button {
+    background-color: #00a7e1; /* 有効色 */
+    color: #fff;
 }
-
-.option-item {
-    cursor: pointer;
+.exam-page.last-question.state-answered .next-button {
+    background-color: #0096d6; /* 最終問はすこし強めの色調 */
 }
-
-.option-item input[type="radio"] {
-    accent-color: #00a7e1;
-    margin-right: 0.5rem;
+.exam-page.state-submitting .next-button {
+    opacity: 0.9;
+    position: relative;
+    pointer-events: none;
 }
-
-.option-item.selected {
-    background-color: #e6f4f7;
-    border-left: 4px solid #00a7e1;
+.exam-page.state-submitting .next-button::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.9);
+    border-top-color: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: .5rem;
+    animation: spin .8s linear infinite;
 }
+@keyframes spin { to { transform: rotate(360deg); } }
