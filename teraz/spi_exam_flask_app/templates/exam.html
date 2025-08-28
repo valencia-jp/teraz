@@ -13,8 +13,7 @@
     <!-- Subject and close icon row -->
     <div class="exam-header">
         <div class="subject">{{ subject_title }}</div>
-        <!-- In a production app you might implement a close button to cancel
-             the exam.  It is omitted here to keep the example focused. -->
+        <a class="close-btn" href="{{ url_for('select_mode') }}" aria-label="close">&times;</a>
     </div>
     <!-- Answer time indicators and circular timer -->
     <div class="exam-meta">
@@ -78,6 +77,9 @@
   radios.forEach(radio => {
     radio.addEventListener('change', () => {
       nextBtn.disabled = false;
+      // highlight selected option
+      document.querySelectorAll('.option-item').forEach(l => l.classList.remove('selected'));
+      radio.closest('.option-item').classList.add('selected');
     });
   });
 
