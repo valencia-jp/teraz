@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "nonverbal",
+  "slug": "easy_nonverbal_5q",
+  "title": "かんたん受験 - 非言語",
+  "description": "計算や図形に関する基礎問題を出題します。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "1から10までの整数の総和はいくつか。",
+      "options": ["45", "55", "65"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "下の数列の次の数を求めなさい: 2, 4, 8, 16, ?",
+      "options": ["18", "24", "32"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "三角形の内角の和は何度か。",
+      "options": ["90", "180", "270"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "辺の長さが3の正方形の面積は？",
+      "options": ["6", "9", "12"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "5, 7, 11, 13, ? の数列の次の素数を選びなさい。",
+      "options": ["15", "17", "19"],
+      "answer_index": 1
+    }
+  ]
+}

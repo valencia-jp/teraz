@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "language",
+  "slug": "easy_language_5q",
+  "title": "かんたん受験 - 言語",
+  "description": "短時間で5問の言語分野を確認します。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "最初に示された二語の関係と同じものを選びなさい。<br>慈善：寄付",
+      "options": ["裁判：判決", "教育：授業", "研究：論文"],
+      "answer_index": 2,
+      "explanation_html": "研究の成果として論文が生まれる点が共通しています。"
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "次の四字熟語の意味として正しいものを選びなさい。<br>温故知新",
+      "options": ["古きを忘れる", "歴史から学ぶ", "新しいものを恐れる"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "文中の＜＞に入る語として最も適切なものを選びなさい。<br>彼は会議で意見を＜　＞した。",
+      "options": ["提案", "提携", "提言"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "次のうち、文法的に誤っている文を選びなさい。",
+      "options": ["私は昨日図書館へ行った。", "雨が降ったので家にいた。", "その本は面白く読んだ。"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "カタカナ語の意味として正しいものを選びなさい。<br>インセンティブ",
+      "options": ["抑制", "動機付け", "報告"],
+      "answer_index": 1
+    }
+  ]
+}

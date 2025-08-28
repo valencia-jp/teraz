@@ -42,7 +42,7 @@
     <!-- Question title and text -->
     <div class="question-block">
         <p class="question-title">問題 {{ index + 1 }}/{{ total }}</p>
-        <div class="question-text">{{ question.question|safe }}</div>
+        <div class="question-text">{{ question.prompt_html|safe }}</div>
     </div>
     <!-- Options and Next button -->
     <form action="{{ url_for('exam_answer') }}" method="post" id="question-form">

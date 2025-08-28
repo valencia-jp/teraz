@@ -3,10 +3,9 @@
 {% block content %}
 <h2>受験モードを選択</h2>
 <p>SPI 模擬試験へようこそ。まずは受験モードを選択してください。</p>
-<ul class="mode‑list">
-    <li><a href="{{ url_for('select_category', mode='easy') }}" class="button">かんたん受験</a></li>
-    {# Provide a placeholder for full exam mode.  It is disabled here
-       because only the easy mode is implemented in this example. #}
-    <li><span class="disabled">本番受験（未実装）</span></li>
+<ul class="mode-list">
+    {% for mode in modes %}
+    <li><a href="{{ url_for('select_category', mode=mode) }}" class="button">{{ mode_labels.get(mode, mode) }}</a></li>
+    {% endfor %}
 </ul>
 {% endblock %}
