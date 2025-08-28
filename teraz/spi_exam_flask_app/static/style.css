@@ -283,3 +283,37 @@ ul.category‑list {
     background‑color: #00a7e1;
     color: #fff;
 }
+
+/* Additional tweaks for redesigned exam screen */
+.close-btn {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #999;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.progress-bars .bar.done {
+    background-color: #00a7e1;
+}
+
+.progress-bars .bar.current {
+    background-color: #ffb74d;
+}
+
+.option-item {
+    cursor: pointer;
+}
+
+.option-item input[type="radio"] {
+    accent-color: #00a7e1;
+    margin-right: 0.5rem;
+}
+
+.option-item.selected {
+    background-color: #e6f4f7;
+    border-left: 4px solid #00a7e1;
+}
