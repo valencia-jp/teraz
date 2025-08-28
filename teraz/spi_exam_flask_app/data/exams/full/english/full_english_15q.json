@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "mode": "full",
+  "category": "english",
+  "slug": "full_english_15q",
+  "title": "本格受験 - 英語",
+  "description": "基礎的な語彙と文法、表現を幅広く問う15問の模擬問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Select the synonym of 'happy'.",
+      "options": ["sad", "content", "angry"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Choose the antonym of 'dangerous'.",
+      "options": ["safe", "loud", "small"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Select the correct form to complete the sentence: 'She _____ to the store yesterday.'",
+      "options": ["go", "going", "went"],
+      "answer_index": 2
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "Fill in the blank with the correct preposition: 'He is good ___ math.'",
+      "options": ["at", "on", "in"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q5",
+      "type": "mc",
+      "prompt_html": "What is the past participle of 'write'?",
+      "options": ["wrote", "written", "writing"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q6",
+      "type": "mc",
+      "prompt_html": "Choose the correct article: '___ apple a day keeps the doctor away.'",
+      "options": ["A", "An", "The"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q7",
+      "type": "mc",
+      "prompt_html": "Which word best completes the sentence: 'They will ____ the project tomorrow.'",
+      "options": ["finish", "finished", "finishing"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q8",
+      "type": "mc",
+      "prompt_html": "Select the word closest in meaning to 'difficult'.",
+      "options": ["hard", "easy", "brief"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q9",
+      "type": "mc",
+      "prompt_html": "Choose the correct comparative form: 'This book is _____ than that one.'",
+      "options": ["good", "better", "best"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q10",
+      "type": "mc",
+      "prompt_html": "Select the correct translation: '朝食を抜かないで。'",
+      "options": [
+        "Don't skip breakfast.",
+        "Skip the breakfast.",
+        "Don't eat breakfast."
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "Q11",
+      "type": "mc",
+      "prompt_html": "Which sentence uses the present perfect tense?",
+      "options": [
+        "I study English every day.",
+        "She will go to school tomorrow.",
+        "He has lived here for five years."
+      ],
+      "answer_index": 2
+    },
+    {
+      "id": "Q12",
+      "type": "mc",
+      "prompt_html": "Choose the correct plural form of 'child'.",
+      "options": ["childs", "children", "childrens"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q13",
+      "type": "mc",
+      "prompt_html": "Select the correct idiom meaning 'to give up'.",
+      "options": ["Throw in the towel", "Break the ice", "Hit the books"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q14",
+      "type": "mc",
+      "prompt_html": "Fill in the blank with the correct verb form: 'If it ____ tomorrow, we will cancel the picnic.'",
+      "options": ["rain", "rains", "raining"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q15",
+      "type": "mc",
+      "prompt_html": "Which sentence has correct subject-verb agreement?",
+      "options": [
+        "The team are winning the game.",
+        "The list of items is on the table.",
+        "My friend and colleague is arriving soon."
+      ],
+      "answer_index": 1
+    }
+  ]
+}
