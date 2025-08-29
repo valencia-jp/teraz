@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+._*
+.DS_Store
+__MACOSX/

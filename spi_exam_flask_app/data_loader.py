@@ -30,6 +30,14 @@ def get_data_root() -> Path:
     env = os.environ.get("EXAM_DATA_DIR")
     if env:
         return Path(env)
+    repo_root = Path(__file__).resolve().parents[1]
+    candidates = [
+        repo_root / "exams",
+        repo_root / "spi_exam_flask_app" / "data" / "exams",
+    ]
+    for path in candidates:
+        if path.exists():
+            return path
     return Path(__file__).parent / "data" / "exams"
 
 

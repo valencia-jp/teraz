@@ -1,11 +1,9 @@
-"""
-Flask web application that replicates the dynamic exam flow.  Question
-sets are stored in external JSON files which are indexed at startup.
-"""
+"""Flask web application serving static exam pages and dynamic routes."""
 from __future__ import annotations
 
 import os
 from datetime import timedelta
+from pathlib import Path
 from typing import Dict, Any, List
 
 from flask import (
@@ -18,9 +16,14 @@ from flask import (
     flash,
     jsonify,
     current_app,
+    send_from_directory,
+    abort,
 )
 
 import data_loader
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+STATIC_ROOT = REPO_ROOT / "teraz"
 
 
 def create_app() -> Flask:
@@ -38,72 +41,43 @@ def create_app() -> Flask:
         if app.debug:
             app.config["EXAM_INDEX"] = data_loader.build_index()
 
-    MODE_LABELS = {
-        "easy": "かんたん受験",
-        "standard": "標準受験",
-        "full": "本番受験",
-    }
-    CATEGORY_LABELS = {
-        "language": "言語",
-        "nonverbal": "非言語",
-        "english": "英語",
-    }
-
     @app.route("/")
-    def home() -> str:
-        return redirect(url_for("select_mode"))
+    def root() -> Any:
+        return redirect(url_for("select_mode_html"))
 
     @app.route("/exam/select-mode")
-    def select_mode() -> str:
-        index = current_app.config["EXAM_INDEX"]
-        modes = data_loader.list_modes(index)
-        return render_template(
-            "select_mode.html",
-            modes=modes,
-            mode_labels=MODE_LABELS,
-        )
+    def select_mode_html() -> Any:
+        return send_from_directory(STATIC_ROOT / "exam", "select-mode.html")
 
     @app.route("/exam/select-category/<mode>")
-    def select_category(mode: str) -> str:
-        index = current_app.config["EXAM_INDEX"]
-        if mode not in data_loader.list_modes(index):
-            flash("未知の受験モードが指定されました。", "error")
-            return redirect(url_for("select_mode"))
-        categories = data_loader.list_categories(index, mode)
-        sets_by_category = {
-            cat: data_loader.list_sets(index, mode, cat) for cat in categories
-        }
-        return render_template(
-            "select_category.html",
-            mode=mode,
-            categories=categories,
-            sets_by_category=sets_by_category,
-            mode_labels=MODE_LABELS,
-            category_labels=CATEGORY_LABELS,
-        )
+    def select_category_html(mode: str) -> Any:
+        return send_from_directory(STATIC_ROOT / "exam" / "select-category", f"{mode}.html")
 
-    @app.route("/exam/pre-exam/<slug>")
-    def pre_exam(slug: str) -> str:
-        index = current_app.config["EXAM_INDEX"]
-        meta = index.get(slug)
-        if not meta:
-            flash("選択された問題セットが存在しません。", "error")
-            return redirect(url_for("select_mode"))
-        try:
-            data = data_loader.load_set(slug)
-        except Exception:
-            flash("問題データの読み込みに失敗しました。", "error")
-            return redirect(url_for("select_mode"))
-        info = {
-            "title": data["title"],
-            "description": data.get("description", ""),
-            "mode": meta["mode"],
-            "category": meta["category"],
-            "question_set_id": meta["slug"],
-            "num_questions": meta["num_questions"],
-            "time_limit_minutes": meta["time_per_question_sec"] * meta["num_questions"] // 60,
-        }
-        return render_template("pre_exam.html", info=info)
+    @app.route("/exam/pre-exam/<path:filename>")
+    def pre_exam_html(filename: str):
+        if "/" in filename or ".." in filename:
+            abort(400)
+        return send_from_directory(STATIC_ROOT / "exam" / "pre-exam", filename)
+
+    @app.route("/css/<path:filename>")
+    def css_static(filename: str):
+        return send_from_directory(STATIC_ROOT / "css", filename)
+
+    @app.route("/js/<path:filename>")
+    def js_static(filename: str):
+        return send_from_directory(STATIC_ROOT / "js", filename)
+
+    @app.route("/images/<path:filename>")
+    def img_static(filename: str):
+        return send_from_directory(STATIC_ROOT / "images", filename)
+
+    @app.route("/build/<path:filename>")
+    def build_static(filename: str):
+        return send_from_directory(STATIC_ROOT / "build", filename)
+
+    @app.get("/healthz")
+    def healthz() -> str:
+        return "ok"
 
     @app.post("/exam/start")
     def exam_start() -> Any:
@@ -111,12 +85,12 @@ def create_app() -> Flask:
         index = current_app.config["EXAM_INDEX"]
         if not slug or slug not in index:
             flash("無効な問題セットです。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         try:
             data = data_loader.load_set(slug)
         except Exception:
             flash("問題データの読み込みに失敗しました。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         session.permanent = True
         session["question_set_id"] = slug
         session["current_index"] = 0
@@ -130,12 +104,12 @@ def create_app() -> Flask:
         index = session.get("current_index", 0)
         if not slug:
             flash("受験が開始されていません。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         try:
             data = data_loader.load_set(slug)
         except Exception:
             flash("問題データの読み込みに失敗しました。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         questions = data["questions"]
         if index >= len(questions):
             return redirect(url_for("exam_result"))
@@ -158,12 +132,12 @@ def create_app() -> Flask:
         index = session.get("current_index", 0)
         if not slug:
             flash("セッションが無効です。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         try:
             data_loader.load_set(slug)
         except Exception:
             flash("問題データの読み込みに失敗しました。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         try:
             selected_index = int(selected) if selected is not None else None
         except (TypeError, ValueError):
@@ -183,12 +157,12 @@ def create_app() -> Flask:
         answers = session.get("answers", [])
         if not slug:
             flash("結果を表示できません。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         try:
             data = data_loader.load_set(slug)
         except Exception:
             flash("問題データの読み込みに失敗しました。", "error")
-            return redirect(url_for("select_mode"))
+            return redirect(url_for("select_mode_html"))
         questions = data["questions"]
         score = 0
         for idx, q in enumerate(questions):
