@@ -18,7 +18,6 @@ from flask import (
     flash,
     jsonify,
     current_app,
-    send_from_directory,
 )
 
 from pathlib import Path
@@ -89,16 +88,22 @@ def create_app() -> Flask:
         return redirect(url_for("static", filename="exam/select-mode.html"))
 
     @app.route("/exam/select-category/<mode>")
-    def select_category(mode: str) -> str:
-        """Redirect to the static category selection page for the given mode.
+    def select_category(mode: str) -> Any:
+        """Return the static category selection page for the given mode.
 
-        For example, requesting /exam/select-category/easy will return
-        the file exam/select-category/easy.html.  If the file does not
-        exist, the dynamic fallback remains available via Flask's static
-        error handling.
+        This route previously redirected unconditionally to
+        ``<mode>.html``.  When the incoming ``mode`` already ended with
+        ``.html`` this resulted in a redirect loop such as
+        ``easy.html`` → ``easy.html.html``.  To avoid that behaviour we
+        now serve the static file directly whenever the extension is
+        present.  A redirect is only issued when ``mode`` lacks the
+        ``.html`` suffix.
         """
-        filename = f"exam/select-category/{mode}.html"
-        return redirect(url_for("static", filename=filename))
+        filename = f"exam/select-category/{mode}"
+        if not filename.endswith(".html"):
+            filename += ".html"
+            return redirect(url_for("static", filename=filename))
+        return current_app.send_static_file(filename)
 
     @app.route("/exam/pre-exam/<slug>")
     def pre_exam(slug: str) -> str:
