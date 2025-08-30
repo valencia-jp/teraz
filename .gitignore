@@ -1,0 +1,4 @@
+# Ignore macOS metadata files and other unnecessary artifacts
+.DS_Store
+._*
+__MACOSX/
