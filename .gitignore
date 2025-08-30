@@ -1,3 +1,8 @@
+# Ignore macOS metadata files and other unnecessary artifacts
+.DS_Store
+._*
+__MACOSX/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
