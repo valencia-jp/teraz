@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "antonym_english_4q",
+  "title": "かんたん受験 - 英語（反意語4問）",
+  "description": "反意語を選ぶ4問の練習問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'generous'.",
+      "options": ["selfish", "honest", "polite", "clever", "simple"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'expand'.",
+      "options": ["contract", "increase", "divide", "produce", "select"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'ancient'.",
+      "options": ["modern", "quiet", "basic", "tiny", "early"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "Choose the word that is opposite in meaning to 'include'.",
+      "options": ["contain", "exclude", "improve", "accept", "ignore"],
+      "answer_index": 1
+    }
+  ]
+}

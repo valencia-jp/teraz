@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "mode": "easy",
+  "category": "english",
+  "slug": "word_meaning_english_4q",
+  "title": "かんたん受験 - 英語（単語の意味4問）",
+  "description": "英単語の意味を問う4問の練習問題です。",
+  "time_per_question_sec": 60,
+  "questions": [
+    {
+      "id": "Q1",
+      "type": "mc",
+      "prompt_html": "to look at something quickly and then look away",
+      "options": ["stare", "glance", "observe", "notice", "examine"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q2",
+      "type": "mc",
+      "prompt_html": "a building where books are kept for people to read or borrow",
+      "options": ["library", "bakery", "garage", "stadium", "factory"],
+      "answer_index": 0
+    },
+    {
+      "id": "Q3",
+      "type": "mc",
+      "prompt_html": "the act of leaving a place",
+      "options": ["arrival", "departure", "decision", "growth", "failure"],
+      "answer_index": 1
+    },
+    {
+      "id": "Q4",
+      "type": "mc",
+      "prompt_html": "water that falls from the sky in tiny drops",
+      "options": ["snow", "rain", "fog", "steam", "cloud"],
+      "answer_index": 1
+    }
+  ]
+}
