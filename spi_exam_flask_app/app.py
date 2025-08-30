@@ -71,11 +71,11 @@ def create_app() -> Flask:
 
     @app.route("/")
     def home() -> str:
-        # Redirect to the static select-mode page.  Because static files are served
-        # from the app root (via static_url_path=""), url_for('static', filename=...)
-        # will generate the correct URL to the HTML file.  This avoids rendering
-        # unused Jinja templates for the mode selection screen.
-        return redirect(url_for("static", filename="exam/select-mode.html"))
+        # Redirect to the static index page so the site home loads first. Because
+        # static files are served from the app root (via static_url_path=""),
+        # url_for('static', filename="index.html") will generate the correct URL
+        # to the index.html file.
+        return redirect(url_for("static", filename="index.html"))
 
     @app.route("/exam/select-mode")
     def select_mode() -> str:
