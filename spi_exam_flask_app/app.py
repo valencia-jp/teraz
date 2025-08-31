@@ -84,11 +84,11 @@ def create_app() -> Flask:
 
     # ※ 重要:
     # 以前存在した `/exam/pre-exam/<slug>` の **動的ルートは定義しない**。
-    # プレ受験画面は HTTrack ミラーの静的 HTML（例: /exam/pre-exam/5.html 等）を
+    # プレ受験画面は HTTrack ミラーの静的 HTML（例: /exam/pre-exam/antonym_english_4q.html 等）を
     # そのまま返すため、Flask の動的ルートで横取りしない。静的配信に任せる。
     #
     # 具体的には:
-    #   /exam/pre-exam/5.html               -> static file (HTTrack)
+    #   /exam/pre-exam/antonym_english_4q.html -> static file (HTTrack)
     #   /exam/pre-exam/easy_1000f6.html     -> static file (HTTrack)
     # これら静的ページの <form action="/exam/start"> が POST を投げる。
 
