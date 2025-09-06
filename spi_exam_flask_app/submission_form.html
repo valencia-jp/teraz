@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信フォーム</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 2rem;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        label {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .radio-inline {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        button[type="button"] {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background-color: #4d8c97;
+            color: #fff;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .agree {
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form>
+        <!-- 1. profile section -->
+        <div class="form-section">
+            <h2>プロフィールを入力してください</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="last-name">氏名</label>
+                    <input id="last-name" type="text" placeholder="山田" required>
+                </div>
+                <div class="form-group" style="margin-top:1.65rem;">
+                    <input id="first-name" type="text" placeholder="太郎" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="last-kana">ふりがな</label>
+                    <input id="last-kana" type="text" placeholder="やまだ" required>
+                </div>
+                <div class="form-group" style="margin-top:1.65rem;">
+                    <input id="first-kana" type="text" placeholder="たろう" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="region">お住まいの地域</label>
+                <input id="region" type="text" placeholder="東京都" required>
+            </div>
+            <div class="form-group">
+                <label>性別</label>
+                <div class="radio-inline">
+                    <label><input type="radio" name="gender" value="male" checked> 男性</label>
+                    <label><input type="radio" name="gender" value="female"> 女性</label>
+                    <label><input type="radio" name="gender" value="other"> その他</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. school section -->
+        <div class="form-section">
+            <h2>在学中もしくは卒業した学校を選択してください</h2>
+            <div class="form-group radio-group" id="school-options">
+                <label><input type="radio" name="school" value="university"> 大学</label>
+                <label><input type="radio" name="school" value="graduate"> 大学院 (修士)</label>
+                <label><input type="radio" name="school" value="graduate-doctor"> 大学院 (博士)</label>
+                <label><input type="radio" name="school" value="junior"> 短大</label>
+                <label><input type="radio" name="school" value="vocational"> 専門学校</label>
+            </div>
+            <div class="form-row" id="dept-fields" style="display:none;">
+                <div class="form-group" id="faculty-group">
+                    <label for="faculty">学部 / 研究科</label>
+                    <input id="faculty" type="text">
+                </div>
+                <div class="form-group" id="department-group">
+                    <label for="department">学科 / 専攻</label>
+                    <input id="department" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="grad-year">卒業予定年</label>
+                <input id="grad-year" type="number" min="1900" max="2100" placeholder="2025">
+            </div>
+        </div>
+
+        <!-- 3. info section -->
+        <div class="form-section">
+            <div class="form-group">
+                <label for="email">メールアドレス *</label>
+                <input id="email" type="email" required placeholder="exsample@mail.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">電話番号 *</label>
+                <input id="phone" type="tel" required placeholder="09012345678">
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード *</label>
+                <div class="form-row">
+                    <input id="password" type="password" minlength="4" required style="flex:1;">
+                    <button type="button" id="togglePassword">&#128065;</button>
+                </div>
+                <small>4文字以上で入力してください</small>
+            </div>
+            <div class="form-group agree">
+                <label><input type="checkbox" required> <a href="terms.html" target="_blank">利用規約</a> および <a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する。また、ご案内のメールを受け取る。</label>
+            </div>
+        </div>
+
+        <!-- 4. submit button -->
+        <div class="form-section" style="text-align:center;">
+            <button class="submit-btn" type="submit">登録完了</button>
+        </div>
+    </form>
+</div>
+
+<script>
+const schoolRadios = document.querySelectorAll('input[name="school"]');
+const deptFields = document.getElementById('dept-fields');
+function updateSchoolFields() {
+    const selected = document.querySelector('input[name="school"]:checked');
+    if (!selected) return;
+    const value = selected.value;
+    const facultyGroup = document.getElementById('faculty-group');
+    const departmentGroup = document.getElementById('department-group');
+    if (value === 'university' || value === 'junior') {
+        deptFields.style.display = 'flex';
+        facultyGroup.querySelector('label').textContent = '学部';
+        departmentGroup.querySelector('label').textContent = '学科';
+        departmentGroup.style.display = 'block';
+    } else if (value === 'vocational') {
+        deptFields.style.display = 'flex';
+        facultyGroup.querySelector('label').textContent = '専攻';
+        departmentGroup.style.display = 'none';
+    } else if (value.startsWith('graduate')) {
+        deptFields.style.display = 'flex';
+        facultyGroup.querySelector('label').textContent = '研究科';
+        departmentGroup.querySelector('label').textContent = '専攻';
+        departmentGroup.style.display = 'block';
+    } else {
+        deptFields.style.display = 'none';
+    }
+}
+
+schoolRadios.forEach(radio => {
+    radio.addEventListener('change', updateSchoolFields);
+});
+
+const toggleBtn = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
+
+toggleBtn.addEventListener('click', () => {
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+});
+</script>
+</body>
+</html>
